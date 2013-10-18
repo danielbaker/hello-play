@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cauldronApp">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Baker's Coding Cauldron</title>
+    <link rel='stylesheet' href='@routes.Assets.at("css/bootstrap.min.css")'>
+    <link rel='stylesheet' href='@routes.Assets.at("css/cauldron.css")'>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    <div class="container">
+        <a class="navbar-brand" href="#">Coding Cauldron</a>
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse navHeaderCollapse navbar-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a>Home</a></li>
+                <li><a>About</a></li>
+                <li><a>Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container" ng-controller="postsController">
+    <div class="row">
+        <div class="col-md-8">
+            <div ng-repeat="post in posts">
+                <h1><a href="#">{{ post.title }}</a></h1>
+                <hr>
+                <p>
+                    <span class="glyphicon glyphicon-time"></span> Posted on {{ post.date }}
+                </p>
+                <hr>
+                <p>
+                    {{ post.content }}
+                </p>
+                <span class="btn btn-primary">Read more <span class="glyphicon glyphicon-chevron-right"></span></span>
+                <hr>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <h4>Posts</h4>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="list-unstyled">
+                            <li ng-repeat="post in posts"><a href="#">{{ post.title }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-default navBarFooter">
+    <div class="container">
+        <span class="navbar-text pull-left">Daniel Baker</span>
+        <a class="navbar-btn btn btn-primary pull-right">Dominant Button</a>
+    </div>
+</div>
+<script type='text/javascript' src='@routes.Assets.at("javascripts/jquery-1.10.2.min.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("javascripts/angular.min.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("javascripts/angular-resource.min.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("javascripts/bootstrap.js")'></script>
+<script type='text/javascript' src='@routes.Assets.at("javascripts/cauldron.js")'></script>
+</body>
+</html>
